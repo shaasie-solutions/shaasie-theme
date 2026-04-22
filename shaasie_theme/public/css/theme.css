@@ -1,0 +1,59 @@
+/* ============================================================
+   Shaasie Theme — desk only
+   Loaded via app_include_css → only on /app (ERPNext desk).
+   Never touches website pages, login, or other sites.
+   ============================================================ */
+
+/* ── Brand colour tokens ────────────────────────────────────────────────────
+   Override Frappe's own CSS variables — the officially supported way.
+   Dark-mode and light-mode both inherit these automatically. */
+:root {
+  --primary-color:         #005eb8;
+  --primary:               #005eb8;
+  --primary-dark:          #004494;
+  --text-on-primary-color: #ffffff;
+}
+
+/* ── Cairo font — desk shell only ──────────────────────────────────────────
+   Scoped to Frappe's desk wrapper classes so website pages are unaffected. */
+.layout-main,
+.navbar,
+.page-head,
+.layout-main input,
+.layout-main button,
+.layout-main select,
+.layout-main textarea {
+  font-family: "Cairo", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ── Primary button ─────────────────────────────────────────────────────────
+   Use CSS variables so dark-mode keeps working. */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color:     var(--primary-color);
+  color:            var(--text-on-primary-color);
+  font-family:      "Cairo", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight:      600;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--primary-dark);
+  border-color:     var(--primary-dark);
+  color:            var(--text-on-primary-color);
+}
+
+/* ── Section headings & labels ──────────────────────────────────────────────*/
+.section-head {
+  color:          var(--primary-color);
+  font-weight:    700;
+  border-bottom:  1px solid #dee2e6;
+  padding-bottom: 8px;
+  margin-bottom:  15px;
+}
+
+.control-label {
+  color:       #344761;
+  font-weight: 500;
+  font-size:   0.9em;
+}

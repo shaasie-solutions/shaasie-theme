@@ -1,0 +1,5 @@
+include shaasie_theme/*.txt
+graft shaasie_theme
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__
