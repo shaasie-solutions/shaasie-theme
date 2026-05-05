@@ -200,6 +200,22 @@
   font-weight: 700 !important;
 }
 
+/* ── White text on ANY colored background ───────────────────── */
+[data-theme="ce_blue"] .btn-primary,
+[data-theme="ce_blue"] .badge-primary,
+[data-theme="ce_blue"] .indicator-pill.blue,
+[data-theme="ce_blue"] .indicator-pill.darkblue,
+[data-theme="ce_blue"] .tag[style*="background"],
+[data-theme="ce_blue"] .label-primary {
+  color: #ffffff !important;
+}
+/* Sidebar selected: light tinted bg — use theme color text (readable) */
+[data-theme="ce_blue"] .desk-sidebar .sidebar-item.selected .sidebar-item-label,
+[data-theme="ce_blue"] .desk-sidebar .sidebar-item.active .sidebar-item-label {
+  color: #004494 !important;
+  font-weight: 700 !important;
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    ██  CE GREEN
@@ -368,6 +384,20 @@
   font-weight: 700 !important;
 }
 
+/* ── White text on ANY colored background ───────────────────── */
+[data-theme="ce_green"] .btn-primary,
+[data-theme="ce_green"] .badge-primary,
+[data-theme="ce_green"] .indicator-pill.green,
+[data-theme="ce_green"] .tag[style*="background"],
+[data-theme="ce_green"] .label-primary {
+  color: #ffffff !important;
+}
+[data-theme="ce_green"] .desk-sidebar .sidebar-item.selected .sidebar-item-label,
+[data-theme="ce_green"] .desk-sidebar .sidebar-item.active .sidebar-item-label {
+  color: #145e39 !important;
+  font-weight: 700 !important;
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    ██  CE RED
@@ -533,5 +563,19 @@
 [data-theme="ce_red"] .form-tabs-list .nav-link.active {
   color: #c0392b !important;
   border-bottom: 2px solid #c0392b !important;
+  font-weight: 700 !important;
+}
+
+/* ── White text on ANY colored background ───────────────────── */
+[data-theme="ce_red"] .btn-primary,
+[data-theme="ce_red"] .badge-primary,
+[data-theme="ce_red"] .indicator-pill.red,
+[data-theme="ce_red"] .tag[style*="background"],
+[data-theme="ce_red"] .label-primary {
+  color: #ffffff !important;
+}
+[data-theme="ce_red"] .desk-sidebar .sidebar-item.selected .sidebar-item-label,
+[data-theme="ce_red"] .desk-sidebar .sidebar-item.active .sidebar-item-label {
+  color: #922b21 !important;
   font-weight: 700 !important;
 }
