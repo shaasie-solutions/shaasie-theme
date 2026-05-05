@@ -1,5 +1,4 @@
-include shaasie_theme/*.txt
-graft shaasie_theme
-global-exclude *.pyc
-global-exclude *.pyo
-global-exclude __pycache__
+include *.md *.txt *.cfg
+recursive-include customize_erpnext *.json *.js *.css *.html *.py *.txt *.md
+prune customize_erpnext/__pycache__
+global-exclude *.pyc *.pyo

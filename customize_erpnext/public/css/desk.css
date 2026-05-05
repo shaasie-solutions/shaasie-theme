@@ -1,0 +1,75 @@
+/* =============================================================
+   Customize ERPNext — Desk Theme
+   Loaded via app_include_css → ONLY on /app (ERPNext desk).
+   Never touches website, portal, or login pages.
+   ============================================================= */
+
+/* ── Brand colour tokens ────────────────────────────────────────
+   Override Frappe's CSS variables — the officially supported
+   extension point. Dark-mode inherits these automatically.    */
+:root {
+  --primary-color:         #005eb8;
+  --primary:               #005eb8;
+  --primary-dark:          #004494;
+  --primary-light:         #e8f0fb;
+  --text-on-primary-color: #ffffff;
+}
+
+/* ── Cairo font — scoped to desk wrapper only ───────────────────
+   Frappe's .layout-main and .navbar cover every desk surface.
+   Keeping it scoped prevents the font from leaking to website. */
+.layout-main,
+.layout-main input,
+.layout-main button,
+.layout-main select,
+.layout-main textarea,
+.navbar,
+.page-head,
+.modal-content {
+  font-family: "Cairo", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ── Primary button ─────────────────────────────────────────────*/
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color:     var(--primary-color);
+  color:            var(--text-on-primary-color);
+  font-family:      "Cairo", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight:      600;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--primary-dark);
+  border-color:     var(--primary-dark);
+  color:            var(--text-on-primary-color);
+}
+
+/* ── Section headings ───────────────────────────────────────────*/
+.section-head {
+  color:          var(--primary-color);
+  font-weight:    700;
+  border-bottom:  1px solid #dee2e6;
+  padding-bottom: 8px;
+  margin-bottom:  16px;
+}
+
+/* ── Form field labels ──────────────────────────────────────────*/
+.control-label {
+  color:       #344761;
+  font-weight: 500;
+  font-size:   0.875em;
+}
+
+/* ── Sidebar & module links ─────────────────────────────────────*/
+.sidebar-item.selected > .sidebar-item-label {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* ── Indicator badges ───────────────────────────────────────────*/
+.indicator-pill.blue {
+  background-color: var(--primary-light);
+  color:            var(--primary-color);
+}

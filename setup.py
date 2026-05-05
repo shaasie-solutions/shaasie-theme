@@ -7,12 +7,14 @@ with open("requirements.txt") as f:
         if line.strip() and not line.strip().startswith("#")
     ]
 
-from shaasie_theme import __version__ as version
+from customize_erpnext import __version__ as version
 
 setup(
-    name="shaasie_theme",
+    name="customize_erpnext",
     version=version,
-    description="Cairo font and print style for ERPNext — clean install and uninstall",
+    description="Custom print styles and print formats for ERPNext — Cairo font, RTL/LTR, clean install/uninstall",
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
     author="Shaasie Solutions",
     author_email="support@shaasie.com",
     license="MIT",
@@ -20,4 +22,5 @@ setup(
     zip_safe=False,
     include_package_data=True,
     install_requires=install_requires,
+    python_requires=">=3.10",
 )

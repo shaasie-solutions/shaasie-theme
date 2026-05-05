@@ -1,1 +1,2 @@
-# No extra Python dependencies — only Frappe is required
+# No external Python dependencies.
+# This app relies only on Frappe/ERPNext which are already installed.
