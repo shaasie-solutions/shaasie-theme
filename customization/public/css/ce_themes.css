@@ -27,6 +27,55 @@
   transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease !important;
 }
 
+/* ── GLOBAL RULE: white text on ANY colored button ───────────── */
+/* Covers all colored button variants across every CE theme       */
+[data-theme^="ce_"] .btn-primary,
+[data-theme^="ce_"] .btn-danger,
+[data-theme^="ce_"] .btn-success,
+[data-theme^="ce_"] .btn-warning,
+[data-theme^="ce_"] .btn-info,
+[data-theme^="ce_"] .btn-dark {
+  color: #ffffff !important;
+}
+
+/* ── GLOBAL RULE: white text on all indicator pills & badges ─── */
+[data-theme^="ce_"] .indicator-pill,
+[data-theme^="ce_"] .badge,
+[data-theme^="ce_"] .badge-pill {
+  color: #ffffff !important;
+}
+/* Pills with specific colors keep white text */
+[data-theme^="ce_"] .indicator-pill.red,
+[data-theme^="ce_"] .indicator-pill.pink,
+[data-theme^="ce_"] .indicator-pill.blue,
+[data-theme^="ce_"] .indicator-pill.green,
+[data-theme^="ce_"] .indicator-pill.orange,
+[data-theme^="ce_"] .indicator-pill.yellow,
+[data-theme^="ce_"] .indicator-pill.darkgrey,
+[data-theme^="ce_"] .indicator-pill.purple,
+[data-theme^="ce_"] .indicator-pill.cyan,
+[data-theme^="ce_"] .indicator-pill.grey {
+  color: #ffffff !important;
+}
+
+/* ── GLOBAL RULE: headings inside colored sections ───────────── */
+/* When a section/card has a colored header row, text must be white */
+[data-theme^="ce_"] .widget-head,
+[data-theme^="ce_"] .widget-title,
+[data-theme^="ce_"] .card-header,
+[data-theme^="ce_"] .onboarding-steps-wrapper .step-title {
+  color: inherit;
+}
+/* Any heading directly inside a colored navbar stays white */
+[data-theme^="ce_"] .navbar h1,
+[data-theme^="ce_"] .navbar h2,
+[data-theme^="ce_"] .navbar h3,
+[data-theme^="ce_"] .navbar h4,
+[data-theme^="ce_"] .navbar span,
+[data-theme^="ce_"] .navbar p {
+  color: #ffffff !important;
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    ██  CE BLUE
