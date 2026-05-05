@@ -12,6 +12,21 @@
   font-family: "Cairo", "Inter", "Helvetica Neue", Arial, sans-serif !important;
 }
 
+/* ── Direction: NEVER forced — Frappe controls RTL/LTR ─────── */
+/* We only set font, colors, and spacing. Direction follows      */
+/* the user's language setting in Frappe (Arabic = RTL,          */
+/* English = LTR). No direction or text-align overrides here.   */
+
+/* ── Smooth transitions for hover/focus states ──────────────── */
+[data-theme^="ce_"] .sidebar-item,
+[data-theme^="ce_"] .btn,
+[data-theme^="ce_"] .nav-link,
+[data-theme^="ce_"] .list-row,
+[data-theme^="ce_"] .frappe-card,
+[data-theme^="ce_"] .dropdown-item {
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    ██  CE BLUE
@@ -209,11 +224,25 @@
 [data-theme="ce_blue"] .label-primary {
   color: #ffffff !important;
 }
-/* Sidebar selected: light tinted bg — use theme color text (readable) */
 [data-theme="ce_blue"] .desk-sidebar .sidebar-item.selected .sidebar-item-label,
 [data-theme="ce_blue"] .desk-sidebar .sidebar-item.active .sidebar-item-label {
   color: #004494 !important;
   font-weight: 700 !important;
+}
+
+/* ── Text selection color ───────────────────────────────────── */
+[data-theme="ce_blue"] ::selection {
+  background: rgba(0, 94, 184, 0.2);
+  color: #003580;
+}
+
+/* ── Link color in content areas ────────────────────────────── */
+[data-theme="ce_blue"] .layout-main-section a:not(.btn):not(.nav-link) {
+  color: #005eb8 !important;
+}
+[data-theme="ce_blue"] .layout-main-section a:not(.btn):not(.nav-link):hover {
+  color: #003580 !important;
+  text-decoration: underline;
 }
 
 
@@ -398,6 +427,21 @@
   font-weight: 700 !important;
 }
 
+/* ── Text selection color ───────────────────────────────────── */
+[data-theme="ce_green"] ::selection {
+  background: rgba(26, 122, 74, 0.2);
+  color: #0d4a2d;
+}
+
+/* ── Link color in content areas ────────────────────────────── */
+[data-theme="ce_green"] .layout-main-section a:not(.btn):not(.nav-link) {
+  color: #1a7a4a !important;
+}
+[data-theme="ce_green"] .layout-main-section a:not(.btn):not(.nav-link):hover {
+  color: #0d4a2d !important;
+  text-decoration: underline;
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    ██  CE RED
@@ -578,4 +622,19 @@
 [data-theme="ce_red"] .desk-sidebar .sidebar-item.active .sidebar-item-label {
   color: #922b21 !important;
   font-weight: 700 !important;
+}
+
+/* ── Text selection color ───────────────────────────────────── */
+[data-theme="ce_red"] ::selection {
+  background: rgba(192, 57, 43, 0.18);
+  color: #6e1409;
+}
+
+/* ── Link color in content areas ────────────────────────────── */
+[data-theme="ce_red"] .layout-main-section a:not(.btn):not(.nav-link) {
+  color: #c0392b !important;
+}
+[data-theme="ce_red"] .layout-main-section a:not(.btn):not(.nav-link):hover {
+  color: #6e1409 !important;
+  text-decoration: underline;
 }
