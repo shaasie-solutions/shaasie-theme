@@ -12,7 +12,7 @@ from customize_erpnext import __version__ as version
 setup(
     name="customize_erpnext",
     version=version,
-    description="Custom print styles and print formats for ERPNext — Cairo font, RTL/LTR, clean install/uninstall",
+    description="Custom desk themes, print styles, and print formats for ERPNext — Cairo font, RTL/LTR, clean install/uninstall",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     author="Shaasie Solutions",
