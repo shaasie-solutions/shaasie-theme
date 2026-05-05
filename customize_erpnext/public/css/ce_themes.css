@@ -1,0 +1,137 @@
+/* =============================================================
+   Customize ERPNext — CE Themes
+   Three themes (Blue, Green, Red) using Frappe's native
+   data-theme system. Frappe sets data-theme on <html> when
+   the user picks a theme from the avatar menu.
+
+   All CE themes also apply the Cairo font automatically.
+   ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+
+/* ── Cairo font for every CE theme ──────────────────────────
+   [data-theme^="ce_"] matches ce_blue, ce_green, ce_red.    */
+[data-theme^="ce_"] *,
+[data-theme^="ce_"] input,
+[data-theme^="ce_"] button,
+[data-theme^="ce_"] select,
+[data-theme^="ce_"] textarea {
+  font-family: "Cairo", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   THEME: CE Blue  (#005eb8)
+   ══════════════════════════════════════════════════════════= */
+[data-theme="ce_blue"] {
+  --primary:               #005eb8;
+  --primary-color:         #005eb8;
+  --text-on-primary-color: #ffffff;
+  --dt-primary-color:      #005eb8;
+  --blue-avatar-bg:        #005eb8;
+  --blue-avatar-color:     #ffffff;
+  --blue:                  #005eb8;
+}
+
+[data-theme="ce_blue"] .btn-primary {
+  background-color: #005eb8;
+  border-color:     #005eb8;
+  color:            #ffffff;
+  font-weight:      600;
+}
+
+[data-theme="ce_blue"] .btn-primary:hover,
+[data-theme="ce_blue"] .btn-primary:focus,
+[data-theme="ce_blue"] .btn-primary:active {
+  background-color: #004494;
+  border-color:     #004494;
+}
+
+[data-theme="ce_blue"] .section-head {
+  color:         #005eb8;
+  border-bottom: 1px solid #dee2e6;
+  font-weight:   700;
+}
+
+[data-theme="ce_blue"] .sidebar-item.selected > .sidebar-item-label {
+  color:       #005eb8;
+  font-weight: 600;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   THEME: CE Green  (#1a7a4a)
+   ══════════════════════════════════════════════════════════= */
+[data-theme="ce_green"] {
+  --primary:               #1a7a4a;
+  --primary-color:         #1a7a4a;
+  --text-on-primary-color: #ffffff;
+  --dt-primary-color:      #1a7a4a;
+  --blue-avatar-bg:        #1a7a4a;
+  --blue-avatar-color:     #ffffff;
+  --blue:                  #1a7a4a;
+}
+
+[data-theme="ce_green"] .btn-primary {
+  background-color: #1a7a4a;
+  border-color:     #1a7a4a;
+  color:            #ffffff;
+  font-weight:      600;
+}
+
+[data-theme="ce_green"] .btn-primary:hover,
+[data-theme="ce_green"] .btn-primary:focus,
+[data-theme="ce_green"] .btn-primary:active {
+  background-color: #145e39;
+  border-color:     #145e39;
+}
+
+[data-theme="ce_green"] .section-head {
+  color:         #1a7a4a;
+  border-bottom: 1px solid #dee2e6;
+  font-weight:   700;
+}
+
+[data-theme="ce_green"] .sidebar-item.selected > .sidebar-item-label {
+  color:       #1a7a4a;
+  font-weight: 600;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   THEME: CE Red  (#c0392b)
+   ══════════════════════════════════════════════════════════= */
+[data-theme="ce_red"] {
+  --primary:               #c0392b;
+  --primary-color:         #c0392b;
+  --text-on-primary-color: #ffffff;
+  --dt-primary-color:      #c0392b;
+  --blue-avatar-bg:        #c0392b;
+  --blue-avatar-color:     #ffffff;
+  --blue:                  #c0392b;
+}
+
+[data-theme="ce_red"] .btn-primary {
+  background-color: #c0392b;
+  border-color:     #c0392b;
+  color:            #ffffff;
+  font-weight:      600;
+}
+
+[data-theme="ce_red"] .btn-primary:hover,
+[data-theme="ce_red"] .btn-primary:focus,
+[data-theme="ce_red"] .btn-primary:active {
+  background-color: #922b21;
+  border-color:     #922b21;
+}
+
+[data-theme="ce_red"] .section-head {
+  color:         #c0392b;
+  border-bottom: 1px solid #dee2e6;
+  font-weight:   700;
+}
+
+[data-theme="ce_red"] .sidebar-item.selected > .sidebar-item-label {
+  color:       #c0392b;
+  font-weight: 600;
+}

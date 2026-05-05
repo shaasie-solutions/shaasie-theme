@@ -18,13 +18,6 @@ PRINT_STYLES = ["CE Print Style"]
 # Add the name of every Print Format you export here.
 PRINT_FORMATS: list[str] = []
 
-# Custom Fields created by this app — deleted on uninstall.
-# Name format in Frappe: "{DocType}-{fieldname}"
-CUSTOM_FIELDS = [
-    "System Settings-ce_theme_section",
-    "System Settings-ce_desk_theme",
-]
-
 
 def after_install():
     """
@@ -37,8 +30,8 @@ def after_install():
         msg=(
             "Customize ERPNext installed successfully.<br><br>"
             "Print Style <b>CE Print Style</b> is available in the print dialog.<br>"
-            "Desk Theme selector added to <b>Settings → System Settings → Customize ERPNext</b>.<br><br>"
-            "Choose Blue, Green, or Red — save and reload the page to apply."
+            "Desk Themes <b>CE Blue</b>, <b>CE Green</b>, <b>CE Red</b> are now in "
+            "the avatar menu → same place as Light and Dark."
         ),
         title="Customize ERPNext",
         indicator="green",
@@ -51,7 +44,6 @@ def after_uninstall():
     """
     _delete_records("Print Format", PRINT_FORMATS)
     _delete_records("Print Style", PRINT_STYLES)
-    _delete_custom_fields(CUSTOM_FIELDS)
     frappe.db.commit()
 
 
@@ -76,17 +68,4 @@ def _delete_records(doctype: str, names: list[str]) -> None:
                 frappe.log_error(
                     frappe.get_traceback(),
                     f"customize_erpnext: could not delete {doctype} '{name}'",
-                )
-
-
-def _delete_custom_fields(names: list[str]) -> None:
-    """Safely delete Custom Field records created by this app."""
-    for name in names:
-        if frappe.db.exists("Custom Field", name):
-            try:
-                frappe.delete_doc("Custom Field", name, force=True, ignore_missing=True)
-            except Exception:
-                frappe.log_error(
-                    frappe.get_traceback(),
-                    f"customize_erpnext: could not delete Custom Field '{name}'",
                 )
