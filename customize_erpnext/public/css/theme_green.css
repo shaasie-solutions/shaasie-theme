@@ -1,0 +1,76 @@
+/* =============================================================
+   CE Theme — Green
+   Loaded dynamically by theme_loader.js when Green is selected.
+   ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+
+/* ── Brand colour tokens ──────────────────────────────────── */
+:root {
+  --primary-color:         #1a7a4a;
+  --primary:               #1a7a4a;
+  --primary-dark:          #145e39;
+  --primary-light:         #e8f5ee;
+  --text-on-primary-color: #ffffff;
+}
+
+/* ── Cairo font — everywhere on the desk ─────────────────── */
+*,
+*::before,
+*::after,
+.layout-main,
+.layout-main input,
+.layout-main button,
+.layout-main select,
+.layout-main textarea,
+.navbar,
+.page-head,
+.modal-content,
+.form-control,
+.btn {
+  font-family: "Cairo", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ── Primary buttons ──────────────────────────────────────── */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color:     var(--primary-color);
+  color:            var(--text-on-primary-color);
+  font-weight:      600;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--primary-dark);
+  border-color:     var(--primary-dark);
+  color:            var(--text-on-primary-color);
+}
+
+/* ── Section headings ─────────────────────────────────────── */
+.section-head {
+  color:          var(--primary-color);
+  font-weight:    700;
+  border-bottom:  1px solid #dee2e6;
+  padding-bottom: 8px;
+  margin-bottom:  16px;
+}
+
+/* ── Form labels ──────────────────────────────────────────── */
+.control-label {
+  color:       #2d4a3e;
+  font-weight: 500;
+  font-size:   0.875em;
+}
+
+/* ── Sidebar active item ──────────────────────────────────── */
+.sidebar-item.selected > .sidebar-item-label {
+  color:       var(--primary-color);
+  font-weight: 600;
+}
+
+/* ── Indicator pills ──────────────────────────────────────── */
+.indicator-pill.blue {
+  background-color: var(--primary-light);
+  color:            var(--primary-color);
+}
