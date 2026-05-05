@@ -1,4 +1,4 @@
 include *.md *.txt *.cfg
-recursive-include customize_erpnext *.json *.js *.css *.html *.py *.txt *.md
-prune customize_erpnext/__pycache__
+recursive-include customization *.json *.js *.css *.html *.py *.txt *.md
+prune customization/__pycache__
 global-exclude *.pyc *.pyo

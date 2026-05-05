@@ -1,8 +1,8 @@
 """
-Lifecycle hooks for Customize ERPNext.
+Lifecycle hooks for Customization.
 
-after_install   — runs once when: bench install-app <site> customize_erpnext
-after_uninstall — runs once when: bench remove-app  <site> customize_erpnext
+after_install   — runs once when: bench install-app <site> customization
+after_uninstall — runs once when: bench remove-app  <site> customization
 
 Both functions are idempotent — safe to call multiple times.
 
@@ -28,12 +28,12 @@ def after_install():
     frappe.db.commit()
     frappe.msgprint(
         msg=(
-            "Customize ERPNext installed successfully.<br><br>"
+            "Customization installed successfully.<br><br>"
             "Print Style <b>CE Print Style</b> is available in the print dialog.<br>"
             "Desk Themes <b>CE Blue</b>, <b>CE Green</b>, <b>CE Red</b> are now in "
             "the avatar menu → same place as Light and Dark."
         ),
-        title="Customize ERPNext",
+        title="Customization",
         indicator="green",
     )
 
@@ -53,9 +53,9 @@ def _sync_fixtures():
     """Import this app's fixture JSON files into the database."""
     try:
         from frappe.utils.fixtures import sync_fixtures
-        sync_fixtures(app="customize_erpnext")
+        sync_fixtures(app="customization")
     except Exception:
-        frappe.log_error(frappe.get_traceback(), "customize_erpnext: fixture sync skipped")
+        frappe.log_error(frappe.get_traceback(), "customization: fixture sync skipped")
 
 
 def _delete_records(doctype: str, names: list[str]) -> None:
@@ -67,5 +67,5 @@ def _delete_records(doctype: str, names: list[str]) -> None:
             except Exception:
                 frappe.log_error(
                     frappe.get_traceback(),
-                    f"customize_erpnext: could not delete {doctype} '{name}'",
+                    f"customization: could not delete {doctype} '{name}'",
                 )

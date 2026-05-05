@@ -7,10 +7,10 @@ with open("requirements.txt") as f:
         if line.strip() and not line.strip().startswith("#")
     ]
 
-from customize_erpnext import __version__ as version
+from customization import __version__ as version
 
 setup(
-    name="customize_erpnext",
+    name="customization",
     version=version,
     description="Custom desk themes, print styles, and print formats for ERPNext — Cairo font, RTL/LTR, clean install/uninstall",
     long_description=open("README.md").read(),

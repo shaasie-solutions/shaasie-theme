@@ -1,20 +1,20 @@
 from . import __version__ as app_version
 
-app_name        = "customize_erpnext"
-app_title       = "Customize ERPNext"
+app_name        = "customization"
+app_title       = "Customization"
 app_publisher   = "Shaasie Solutions"
-app_description = "Custom print styles, print formats, and desk themes for ERPNext — Cairo font, RTL support, clean install/uninstall"
+app_description = "Custom desk themes, print styles, and print formats for ERPNext — Cairo font, RTL support, clean install/uninstall"
 app_email       = "support@shaasie.com"
 app_license     = "MIT"
 
 # ── Desk assets ───────────────────────────────────────────────────────────────
 # Loaded ONLY on the ERPNext desk (/app) — never on website or login pages.
 app_include_css = [
-    "/assets/customize_erpnext/css/ce_themes.css",
+    "/assets/customization/css/ce_themes.css",
 ]
 
 app_include_js = [
-    "/assets/customize_erpnext/js/theme_switcher.js",
+    "/assets/customization/js/theme_switcher.js",
 ]
 
 # ── Theme override ────────────────────────────────────────────────────────────
@@ -22,18 +22,18 @@ app_include_js = [
 # Our override extends the allowed list with "ce_blue", "ce_green", "ce_red"
 # so Frappe saves and restores the user's CE theme across sessions.
 override_whitelisted_methods = {
-    "frappe.core.doctype.user.user.switch_theme": "customize_erpnext.overrides.switch_theme.switch_theme",
+    "frappe.core.doctype.user.user.switch_theme": "customization.overrides.switch_theme.switch_theme",
 }
 
 # ── Lifecycle hooks ───────────────────────────────────────────────────────────
-after_install   = "customize_erpnext.install.after_install"
-after_uninstall = "customize_erpnext.install.after_uninstall"
+after_install   = "customization.install.after_install"
+after_uninstall = "customization.install.after_uninstall"
 
 # ── Fixtures ──────────────────────────────────────────────────────────────────
 # HOW TO ADD A NEW PRINT FORMAT:
 #   1. Create the Print Format inside ERPNext (desk → Print Format doctype).
 #   2. Add its name to the filter list below and to PRINT_FORMATS in install.py.
-#   3. Export: bench --site <site> export-fixtures --app customize_erpnext
+#   3. Export: bench --site <site> export-fixtures --app customization
 #   4. Commit the updated fixtures/print_format.json.
 #
 fixtures = [

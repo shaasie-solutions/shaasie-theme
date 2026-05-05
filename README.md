@@ -1,4 +1,4 @@
-# Customize ERPNext
+# Customization
 
 A Frappe/ERPNext app that ships **custom desk themes**, a **custom print style**, and a clean foundation for adding **custom print formats** — Cairo font, RTL/LTR support, and a safe install/uninstall lifecycle.
 
@@ -28,16 +28,16 @@ A Frappe/ERPNext app that ships **custom desk themes**, a **custom print style**
 
 ```bash
 # 1. Get the app from GitHub
-bench get-app customize_erpnext https://github.com/shaasie-solutions/customize-erpnext
+bench get-app customization https://github.com/shaasie-solutions/customize-erpnext
 
 # 2. Install on a site
-bench --site your-site.localhost install-app customize_erpnext
+bench --site your-site.localhost install-app customization
 
 # 3. Run migrate to import fixtures
 bench --site your-site.localhost migrate
 
 # 4. Build assets
-bench build --app customize_erpnext
+bench build --app customization
 ```
 
 After installation:
@@ -69,10 +69,10 @@ After installation:
 
 ```bash
 # Remove from the site — deletes all CE records cleanly
-bench --site your-site.localhost remove-app customize_erpnext
+bench --site your-site.localhost remove-app customization
 
 # Optionally remove from bench entirely
-bench remove-app customize_erpnext
+bench remove-app customization
 ```
 
 The `after_uninstall` hook deletes:
@@ -88,7 +88,7 @@ No other site data is touched.
 ### Project Structure
 
 ```
-customize_erpnext/
+customization/
 ├── __init__.py              # App version (1.0.0)
 ├── hooks.py                 # App metadata, assets, overrides, fixtures, lifecycle hooks
 ├── install.py               # after_install and after_uninstall (idempotent)
@@ -121,7 +121,7 @@ ce_themes.css         → CSS scoped to [data-theme="ce_blue"] etc. — Frappe s
 3. Add its name to `install.py → PRINT_FORMATS` list
 4. Export:
    ```bash
-   bench --site your-site.localhost export-fixtures --app customize_erpnext
+   bench --site your-site.localhost export-fixtures --app customization
    ```
 5. Commit and push:
    ```bash
@@ -132,10 +132,10 @@ ce_themes.css         → CSS scoped to [data-theme="ce_blue"] etc. — Frappe s
 
 ### Modifying a Theme Colour
 
-Edit `customize_erpnext/public/css/ce_themes.css` — find the `[data-theme="ce_blue"]` block and update the colour values. Then rebuild:
+Edit `customization/public/css/ce_themes.css` — find the `[data-theme="ce_blue"]` block and update the colour values. Then rebuild:
 
 ```bash
-bench build --app customize_erpnext
+bench build --app customization
 bench --site your-site.localhost clear-cache
 ```
 
@@ -157,7 +157,7 @@ bench --site your-site.localhost clear-cache
 After editing `CE Print Style` in the browser:
 
 ```bash
-bench --site your-site.localhost export-fixtures --app customize_erpnext
+bench --site your-site.localhost export-fixtures --app customization
 git add -A && git commit -m "style: update CE Print Style"
 git push
 ```

@@ -19,7 +19,7 @@ def switch_theme(theme: str) -> None:
         "light",
         "dark",
         "automatic",
-        # Customize ERPNext themes
+        # Customization app themes
         "ce_blue",
         "ce_green",
         "ce_red",

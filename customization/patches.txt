@@ -1,3 +1,3 @@
 # Patches are run in order during bench migrate.
 # Format: app_name.patches.module.function
-# Example: customize_erpnext.patches.v1_0.my_patch
+# Example: customization.patches.v1_0.my_patch
