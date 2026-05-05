@@ -10,6 +10,9 @@ HOW TO REGISTER A NEW PRINT FORMAT FOR CLEAN UNINSTALL:
   Add its name to PRINT_FORMATS below so after_uninstall deletes it cleanly.
 """
 
+import os
+import shutil
+
 import frappe
 
 # ── Records owned by this app ─────────────────────────────────────────────────
@@ -21,9 +24,10 @@ PRINT_FORMATS: list[str] = []
 
 def after_install():
     """
-    Sync fixtures immediately after install so records are available
-    without needing a separate `bench migrate`.
+    Publish static assets, sync fixtures, and show a success message.
+    Running bench build --app customization is NOT required.
     """
+    _publish_assets()
     _sync_fixtures()
     frappe.db.commit()
     frappe.msgprint(
@@ -40,14 +44,40 @@ def after_install():
 
 def after_uninstall():
     """
-    Remove every record created by this app — no orphaned data left behind.
+    Remove every record and asset created by this app — no orphaned data left behind.
     """
     _delete_records("Print Format", PRINT_FORMATS)
     _delete_records("Print Style", PRINT_STYLES)
+    _remove_assets()
     frappe.db.commit()
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
+
+def _publish_assets():
+    """
+    Copy public/js and public/css from the app source into sites/assets/
+    so the browser can load them without running bench build.
+    """
+    try:
+        src = os.path.join(frappe.get_app_path("customization"), "public")
+        dst = os.path.join(frappe.local.sites_path, "assets", "customization")
+        if os.path.exists(src):
+            os.makedirs(dst, exist_ok=True)
+            shutil.copytree(src, dst, dirs_exist_ok=True)
+    except Exception:
+        frappe.log_error(frappe.get_traceback(), "customization: asset publish skipped")
+
+
+def _remove_assets():
+    """Remove the published assets folder on uninstall."""
+    try:
+        dst = os.path.join(frappe.local.sites_path, "assets", "customization")
+        if os.path.exists(dst):
+            shutil.rmtree(dst)
+    except Exception:
+        frappe.log_error(frappe.get_traceback(), "customization: asset removal skipped")
+
 
 def _sync_fixtures():
     """Import this app's fixture JSON files into the database."""
