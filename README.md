@@ -28,7 +28,7 @@ A Frappe/ERPNext app that ships **custom desk themes**, a **custom print style**
 
 ```bash
 # 1. Get the app from GitHub
-bench get-app customize_erpnext https://github.com/shaasie-solutions/shaasie-theme
+bench get-app customize_erpnext https://github.com/shaasie-solutions/customize-erpnext
 
 # 2. Install on a site
 bench --site your-site.localhost install-app customize_erpnext
