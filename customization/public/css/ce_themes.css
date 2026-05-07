@@ -1,79 +1,29 @@
 /* =============================================================
-   Customize ERPNext — CE Themes  v3.0
-   Balanced: colored navbar · light sidebar · clean dropdowns
+   Customize ERPNext — CE Themes  v4.0
+   Clean, no duplicate rules, no overbroad globals.
    CE Blue | CE Green | CE Red
    ============================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
 
-/* ── Cairo font for all CE themes ───────────────────────────── */
-[data-theme^="ce_"],
+/* ── Cairo font ─────────────────────────────────────────────── */
 [data-theme^="ce_"] * {
   font-family: "Cairo", "Inter", "Helvetica Neue", Arial, sans-serif !important;
 }
 
-/* ── Direction: NEVER forced — Frappe controls RTL/LTR ─────── */
-/* We only set font, colors, and spacing. Direction follows      */
-/* the user's language setting in Frappe (Arabic = RTL,          */
-/* English = LTR). No direction or text-align overrides here.   */
-
-/* ── Smooth transitions for hover/focus states ──────────────── */
+/* ── Smooth hover transitions ───────────────────────────────── */
 [data-theme^="ce_"] .sidebar-item,
 [data-theme^="ce_"] .btn,
 [data-theme^="ce_"] .nav-link,
 [data-theme^="ce_"] .list-row,
-[data-theme^="ce_"] .frappe-card,
 [data-theme^="ce_"] .dropdown-item {
-  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease !important;
+  transition: background 0.15s ease, color 0.15s ease !important;
 }
 
-/* ── GLOBAL RULE: white text on ANY colored button ───────────── */
-/* Covers all colored button variants across every CE theme       */
-[data-theme^="ce_"] .btn-primary,
-[data-theme^="ce_"] .btn-danger,
-[data-theme^="ce_"] .btn-success,
-[data-theme^="ce_"] .btn-warning,
-[data-theme^="ce_"] .btn-info,
-[data-theme^="ce_"] .btn-dark {
-  color: #ffffff !important;
-}
-
-/* ── GLOBAL RULE: white text on all indicator pills & badges ─── */
-[data-theme^="ce_"] .indicator-pill,
-[data-theme^="ce_"] .badge,
-[data-theme^="ce_"] .badge-pill {
-  color: #ffffff !important;
-}
-/* Pills with specific colors keep white text */
-[data-theme^="ce_"] .indicator-pill.red,
-[data-theme^="ce_"] .indicator-pill.pink,
-[data-theme^="ce_"] .indicator-pill.blue,
-[data-theme^="ce_"] .indicator-pill.green,
-[data-theme^="ce_"] .indicator-pill.orange,
-[data-theme^="ce_"] .indicator-pill.yellow,
-[data-theme^="ce_"] .indicator-pill.darkgrey,
-[data-theme^="ce_"] .indicator-pill.purple,
-[data-theme^="ce_"] .indicator-pill.cyan,
-[data-theme^="ce_"] .indicator-pill.grey {
-  color: #ffffff !important;
-}
-
-/* ── GLOBAL RULE: headings inside colored sections ───────────── */
-/* When a section/card has a colored header row, text must be white */
-[data-theme^="ce_"] .widget-head,
-[data-theme^="ce_"] .widget-title,
-[data-theme^="ce_"] .card-header,
-[data-theme^="ce_"] .onboarding-steps-wrapper .step-title {
-  color: inherit;
-}
-/* Any heading directly inside a colored navbar stays white */
-[data-theme^="ce_"] .navbar h1,
-[data-theme^="ce_"] .navbar h2,
-[data-theme^="ce_"] .navbar h3,
-[data-theme^="ce_"] .navbar h4,
-[data-theme^="ce_"] .navbar span,
-[data-theme^="ce_"] .navbar p {
-  color: #ffffff !important;
+/* ── Navbar: everything inside stays white (colored bg) ─────── */
+[data-theme^="ce_"] .navbar,
+[data-theme^="ce_"] .navbar * {
+  /* Each theme overrides navbar bg; children need readable color */
 }
 
 
@@ -99,24 +49,21 @@
   border-bottom: none !important;
   box-shadow: 0 2px 8px rgba(0,46,110,0.25) !important;
 }
-[data-theme="ce_blue"] .navbar > .container,
-[data-theme="ce_blue"] .navbar > .container-fluid {
-  color: #ffffff;
-}
 [data-theme="ce_blue"] .navbar .nav-link,
-[data-theme="ce_blue"] .navbar .navbar-brand {
+[data-theme="ce_blue"] .navbar .navbar-brand,
+[data-theme="ce_blue"] .navbar a,
+[data-theme="ce_blue"] .navbar span,
+[data-theme="ce_blue"] .navbar button {
   color: #e0efff !important;
+}
+[data-theme="ce_blue"] .navbar .navbar-nav svg {
+  stroke: #e0efff !important;
 }
 [data-theme="ce_blue"] .navbar .nav-link:hover {
   color: #ffffff !important;
   background: rgba(255,255,255,0.12) !important;
   border-radius: 6px;
 }
-/* Navbar icons only */
-[data-theme="ce_blue"] .navbar .navbar-nav svg {
-  stroke: #e0efff !important;
-}
-/* Search input in navbar */
 [data-theme="ce_blue"] .navbar .global-search-input {
   background: rgba(255,255,255,0.18) !important;
   border: 1px solid rgba(255,255,255,0.3) !important;
@@ -124,10 +71,10 @@
   border-radius: 8px !important;
 }
 [data-theme="ce_blue"] .navbar .global-search-input::placeholder {
-  color: rgba(255,255,255,0.6) !important;
+  color: rgba(255,255,255,0.55) !important;
 }
 
-/* ── Dropdowns (avatar menu, search, notifications) ─────────── */
+/* Dropdowns: white bg, dark text */
 [data-theme="ce_blue"] .dropdown-menu {
   background: #ffffff !important;
   border: 1px solid #d0e0f4 !important;
@@ -137,25 +84,22 @@
 [data-theme="ce_blue"] .dropdown-menu .dropdown-item,
 [data-theme="ce_blue"] .dropdown-menu a,
 [data-theme="ce_blue"] .dropdown-menu span,
-[data-theme="ce_blue"] .dropdown-menu p,
-[data-theme="ce_blue"] .dropdown-menu li {
+[data-theme="ce_blue"] .dropdown-menu p {
   color: #1a2640 !important;
+}
+[data-theme="ce_blue"] .dropdown-menu svg {
+  stroke: #1a2640 !important;
 }
 [data-theme="ce_blue"] .dropdown-menu .dropdown-item:hover {
   background: #edf3fc !important;
   color: #005eb8 !important;
 }
-[data-theme="ce_blue"] .dropdown-menu svg {
-  stroke: #1a2640 !important;
-}
-[data-theme="ce_blue"] .awesomplete ul,
-[data-theme="ce_blue"] .awesomplete [role="listbox"] {
+[data-theme="ce_blue"] .awesomplete ul {
   background: #ffffff !important;
   border: 1px solid #d0e0f4 !important;
   border-radius: 10px !important;
 }
-[data-theme="ce_blue"] .awesomplete li,
-[data-theme="ce_blue"] .awesomplete [role="option"] {
+[data-theme="ce_blue"] .awesomplete li {
   color: #1a2640 !important;
 }
 [data-theme="ce_blue"] .awesomplete li:hover,
@@ -164,7 +108,7 @@
   color: #005eb8 !important;
 }
 
-/* ── Sidebar (light) ────────────────────────────────────────── */
+/* Sidebar */
 [data-theme="ce_blue"] .layout-side-section,
 [data-theme="ce_blue"] .desk-sidebar {
   background: #f7faff !important;
@@ -188,20 +132,20 @@
 }
 [data-theme="ce_blue"] .desk-sidebar .sidebar-item.selected .sidebar-item-label,
 [data-theme="ce_blue"] .desk-sidebar .sidebar-item.active .sidebar-item-label {
-  color: #005eb8 !important;
+  color: #004494 !important;
   font-weight: 700 !important;
 }
 [data-theme="ce_blue"] .desk-sidebar .sidebar-item.selected svg {
   stroke: #005eb8 !important;
 }
 
-/* ── Main background ────────────────────────────────────────── */
+/* Main background */
 [data-theme="ce_blue"] .page-container,
 [data-theme="ce_blue"] .layout-main-section-wrapper {
   background: #f0f5fc !important;
 }
 
-/* ── Cards ──────────────────────────────────────────────────── */
+/* Cards */
 [data-theme="ce_blue"] .frappe-card,
 [data-theme="ce_blue"] .widget,
 [data-theme="ce_blue"] .number-card {
@@ -210,16 +154,22 @@
   border-radius: 12px !important;
   border: 1px solid #dce9f8 !important;
 }
-[data-theme="ce_blue"] .number-card .number { color: #005eb8; font-weight: 800; }
+[data-theme="ce_blue"] .number-card .number {
+  color: #005eb8 !important;
+  font-weight: 800 !important;
+}
 
-/* ── Page head ──────────────────────────────────────────────── */
+/* Page head */
 [data-theme="ce_blue"] .page-head {
   background: #ffffff !important;
   border-bottom: 1px solid #d0e0f4 !important;
 }
-[data-theme="ce_blue"] .title-text { color: #003580 !important; font-weight: 800 !important; }
+[data-theme="ce_blue"] .title-text {
+  color: #003580 !important;
+  font-weight: 800 !important;
+}
 
-/* ── Buttons ────────────────────────────────────────────────── */
+/* Buttons */
 [data-theme="ce_blue"] .btn-primary {
   background: #005eb8 !important;
   border-color: #005eb8 !important;
@@ -230,16 +180,20 @@
 }
 [data-theme="ce_blue"] .btn-primary:hover {
   background: #004494 !important;
+  color: #ffffff !important;
   box-shadow: 0 4px 10px rgba(0,94,184,0.4) !important;
 }
 
-/* ── Form ───────────────────────────────────────────────────── */
+/* Form */
 [data-theme="ce_blue"] .section-head {
   color: #005eb8 !important;
   font-weight: 700 !important;
   border-bottom: 1px solid #d0e0f4 !important;
 }
-[data-theme="ce_blue"] .control-label { color: #3a5070 !important; font-weight: 600 !important; }
+[data-theme="ce_blue"] .control-label {
+  color: #3a5070 !important;
+  font-weight: 600 !important;
+}
 [data-theme="ce_blue"] .form-control:focus,
 [data-theme="ce_blue"] input:focus,
 [data-theme="ce_blue"] textarea:focus {
@@ -247,16 +201,21 @@
   box-shadow: 0 0 0 3px rgba(0,94,184,0.12) !important;
 }
 
-/* ── List ───────────────────────────────────────────────────── */
-[data-theme="ce_blue"] .list-row:hover { background: #edf3fc !important; }
+/* List */
+[data-theme="ce_blue"] .list-row:hover {
+  background: #edf3fc !important;
+}
 [data-theme="ce_blue"] .list-row-head {
   background: #f0f5fc !important;
   color: #003580 !important;
   font-weight: 700 !important;
 }
-[data-theme="ce_blue"] .list-subject a { color: #005eb8 !important; font-weight: 600; }
+[data-theme="ce_blue"] .list-subject a {
+  color: #005eb8 !important;
+  font-weight: 600;
+}
 
-/* ── Tabs ───────────────────────────────────────────────────── */
+/* Tabs */
 [data-theme="ce_blue"] .nav-tabs .nav-link.active,
 [data-theme="ce_blue"] .form-tabs-list .nav-link.active {
   color: #005eb8 !important;
@@ -264,28 +223,13 @@
   font-weight: 700 !important;
 }
 
-/* ── White text on ANY colored background ───────────────────── */
-[data-theme="ce_blue"] .btn-primary,
-[data-theme="ce_blue"] .badge-primary,
-[data-theme="ce_blue"] .indicator-pill.blue,
-[data-theme="ce_blue"] .indicator-pill.darkblue,
-[data-theme="ce_blue"] .tag[style*="background"],
-[data-theme="ce_blue"] .label-primary {
-  color: #ffffff !important;
-}
-[data-theme="ce_blue"] .desk-sidebar .sidebar-item.selected .sidebar-item-label,
-[data-theme="ce_blue"] .desk-sidebar .sidebar-item.active .sidebar-item-label {
-  color: #004494 !important;
-  font-weight: 700 !important;
-}
-
-/* ── Text selection color ───────────────────────────────────── */
+/* Text selection */
 [data-theme="ce_blue"] ::selection {
-  background: rgba(0, 94, 184, 0.2);
+  background: rgba(0,94,184,0.2);
   color: #003580;
 }
 
-/* ── Link color in content areas ────────────────────────────── */
+/* Links in content */
 [data-theme="ce_blue"] .layout-main-section a:not(.btn):not(.nav-link) {
   color: #005eb8 !important;
 }
@@ -318,15 +262,20 @@
   box-shadow: 0 2px 8px rgba(8,61,34,0.25) !important;
 }
 [data-theme="ce_green"] .navbar .nav-link,
-[data-theme="ce_green"] .navbar .navbar-brand {
+[data-theme="ce_green"] .navbar .navbar-brand,
+[data-theme="ce_green"] .navbar a,
+[data-theme="ce_green"] .navbar span,
+[data-theme="ce_green"] .navbar button {
   color: #d4f0e2 !important;
+}
+[data-theme="ce_green"] .navbar .navbar-nav svg {
+  stroke: #d4f0e2 !important;
 }
 [data-theme="ce_green"] .navbar .nav-link:hover {
   color: #ffffff !important;
   background: rgba(255,255,255,0.12) !important;
   border-radius: 6px;
 }
-[data-theme="ce_green"] .navbar .navbar-nav svg { stroke: #d4f0e2 !important; }
 [data-theme="ce_green"] .navbar .global-search-input {
   background: rgba(255,255,255,0.18) !important;
   border: 1px solid rgba(255,255,255,0.3) !important;
@@ -334,7 +283,7 @@
   border-radius: 8px !important;
 }
 [data-theme="ce_green"] .navbar .global-search-input::placeholder {
-  color: rgba(255,255,255,0.6) !important;
+  color: rgba(255,255,255,0.55) !important;
 }
 
 /* Dropdowns */
@@ -347,34 +296,39 @@
 [data-theme="ce_green"] .dropdown-menu .dropdown-item,
 [data-theme="ce_green"] .dropdown-menu a,
 [data-theme="ce_green"] .dropdown-menu span,
-[data-theme="ce_green"] .dropdown-menu p,
-[data-theme="ce_green"] .dropdown-menu li { color: #122a1e !important; }
+[data-theme="ce_green"] .dropdown-menu p {
+  color: #122a1e !important;
+}
+[data-theme="ce_green"] .dropdown-menu svg {
+  stroke: #122a1e !important;
+}
 [data-theme="ce_green"] .dropdown-menu .dropdown-item:hover {
   background: #edf7f2 !important;
   color: #1a7a4a !important;
 }
-[data-theme="ce_green"] .dropdown-menu svg { stroke: #122a1e !important; }
-[data-theme="ce_green"] .awesomplete ul,
-[data-theme="ce_green"] .awesomplete [role="listbox"] {
+[data-theme="ce_green"] .awesomplete ul {
   background: #ffffff !important;
   border: 1px solid #c0dece !important;
   border-radius: 10px !important;
 }
-[data-theme="ce_green"] .awesomplete li,
-[data-theme="ce_green"] .awesomplete [role="option"] { color: #122a1e !important; }
+[data-theme="ce_green"] .awesomplete li {
+  color: #122a1e !important;
+}
 [data-theme="ce_green"] .awesomplete li:hover,
 [data-theme="ce_green"] .awesomplete [aria-selected="true"] {
   background: #edf7f2 !important;
   color: #1a7a4a !important;
 }
 
-/* Sidebar (light) */
+/* Sidebar */
 [data-theme="ce_green"] .layout-side-section,
 [data-theme="ce_green"] .desk-sidebar {
   background: #f4fbf7 !important;
   border-right: 1px solid #c0dece !important;
 }
-[data-theme="ce_green"] .desk-sidebar .sidebar-item-label { color: #2d6644 !important; }
+[data-theme="ce_green"] .desk-sidebar .sidebar-item-label {
+  color: #2d6644 !important;
+}
 [data-theme="ce_green"] .desk-sidebar .sidebar-item:hover {
   background: #e4f5ec !important;
   border-radius: 8px;
@@ -390,14 +344,18 @@
 }
 [data-theme="ce_green"] .desk-sidebar .sidebar-item.selected .sidebar-item-label,
 [data-theme="ce_green"] .desk-sidebar .sidebar-item.active .sidebar-item-label {
-  color: #1a7a4a !important;
+  color: #145e39 !important;
   font-weight: 700 !important;
 }
-[data-theme="ce_green"] .desk-sidebar .sidebar-item.selected svg { stroke: #1a7a4a !important; }
+[data-theme="ce_green"] .desk-sidebar .sidebar-item.selected svg {
+  stroke: #1a7a4a !important;
+}
 
 /* Main background */
 [data-theme="ce_green"] .page-container,
-[data-theme="ce_green"] .layout-main-section-wrapper { background: #f0f9f4 !important; }
+[data-theme="ce_green"] .layout-main-section-wrapper {
+  background: #f0f9f4 !important;
+}
 
 /* Cards */
 [data-theme="ce_green"] .frappe-card,
@@ -408,14 +366,20 @@
   border-radius: 12px !important;
   border: 1px solid #d0eadb !important;
 }
-[data-theme="ce_green"] .number-card .number { color: #1a7a4a; font-weight: 800; }
+[data-theme="ce_green"] .number-card .number {
+  color: #1a7a4a !important;
+  font-weight: 800 !important;
+}
 
 /* Page head */
 [data-theme="ce_green"] .page-head {
   background: #ffffff !important;
   border-bottom: 1px solid #c0dece !important;
 }
-[data-theme="ce_green"] .title-text { color: #0d4a2d !important; font-weight: 800 !important; }
+[data-theme="ce_green"] .title-text {
+  color: #0d4a2d !important;
+  font-weight: 800 !important;
+}
 
 /* Buttons */
 [data-theme="ce_green"] .btn-primary {
@@ -428,6 +392,7 @@
 }
 [data-theme="ce_green"] .btn-primary:hover {
   background: #145e39 !important;
+  color: #ffffff !important;
   box-shadow: 0 4px 10px rgba(26,122,74,0.4) !important;
 }
 
@@ -437,7 +402,10 @@
   font-weight: 700 !important;
   border-bottom: 1px solid #c0dece !important;
 }
-[data-theme="ce_green"] .control-label { color: #2d6644 !important; font-weight: 600 !important; }
+[data-theme="ce_green"] .control-label {
+  color: #2d6644 !important;
+  font-weight: 600 !important;
+}
 [data-theme="ce_green"] .form-control:focus,
 [data-theme="ce_green"] input:focus,
 [data-theme="ce_green"] textarea:focus {
@@ -446,13 +414,18 @@
 }
 
 /* List */
-[data-theme="ce_green"] .list-row:hover { background: #edf7f2 !important; }
+[data-theme="ce_green"] .list-row:hover {
+  background: #edf7f2 !important;
+}
 [data-theme="ce_green"] .list-row-head {
   background: #f0f9f4 !important;
   color: #0d4a2d !important;
   font-weight: 700 !important;
 }
-[data-theme="ce_green"] .list-subject a { color: #1a7a4a !important; font-weight: 600; }
+[data-theme="ce_green"] .list-subject a {
+  color: #1a7a4a !important;
+  font-weight: 600;
+}
 
 /* Tabs */
 [data-theme="ce_green"] .nav-tabs .nav-link.active,
@@ -462,27 +435,13 @@
   font-weight: 700 !important;
 }
 
-/* ── White text on ANY colored background ───────────────────── */
-[data-theme="ce_green"] .btn-primary,
-[data-theme="ce_green"] .badge-primary,
-[data-theme="ce_green"] .indicator-pill.green,
-[data-theme="ce_green"] .tag[style*="background"],
-[data-theme="ce_green"] .label-primary {
-  color: #ffffff !important;
-}
-[data-theme="ce_green"] .desk-sidebar .sidebar-item.selected .sidebar-item-label,
-[data-theme="ce_green"] .desk-sidebar .sidebar-item.active .sidebar-item-label {
-  color: #145e39 !important;
-  font-weight: 700 !important;
-}
-
-/* ── Text selection color ───────────────────────────────────── */
+/* Text selection */
 [data-theme="ce_green"] ::selection {
-  background: rgba(26, 122, 74, 0.2);
+  background: rgba(26,122,74,0.2);
   color: #0d4a2d;
 }
 
-/* ── Link color in content areas ────────────────────────────── */
+/* Links in content */
 [data-theme="ce_green"] .layout-main-section a:not(.btn):not(.nav-link) {
   color: #1a7a4a !important;
 }
@@ -515,15 +474,20 @@
   box-shadow: 0 2px 8px rgba(110,20,9,0.3) !important;
 }
 [data-theme="ce_red"] .navbar .nav-link,
-[data-theme="ce_red"] .navbar .navbar-brand {
+[data-theme="ce_red"] .navbar .navbar-brand,
+[data-theme="ce_red"] .navbar a,
+[data-theme="ce_red"] .navbar span,
+[data-theme="ce_red"] .navbar button {
   color: #fde8e6 !important;
+}
+[data-theme="ce_red"] .navbar .navbar-nav svg {
+  stroke: #fde8e6 !important;
 }
 [data-theme="ce_red"] .navbar .nav-link:hover {
   color: #ffffff !important;
   background: rgba(255,255,255,0.12) !important;
   border-radius: 6px;
 }
-[data-theme="ce_red"] .navbar .navbar-nav svg { stroke: #fde8e6 !important; }
 [data-theme="ce_red"] .navbar .global-search-input {
   background: rgba(255,255,255,0.18) !important;
   border: 1px solid rgba(255,255,255,0.3) !important;
@@ -531,7 +495,7 @@
   border-radius: 8px !important;
 }
 [data-theme="ce_red"] .navbar .global-search-input::placeholder {
-  color: rgba(255,255,255,0.6) !important;
+  color: rgba(255,255,255,0.55) !important;
 }
 
 /* Dropdowns */
@@ -544,34 +508,39 @@
 [data-theme="ce_red"] .dropdown-menu .dropdown-item,
 [data-theme="ce_red"] .dropdown-menu a,
 [data-theme="ce_red"] .dropdown-menu span,
-[data-theme="ce_red"] .dropdown-menu p,
-[data-theme="ce_red"] .dropdown-menu li { color: #2a1010 !important; }
+[data-theme="ce_red"] .dropdown-menu p {
+  color: #2a1010 !important;
+}
+[data-theme="ce_red"] .dropdown-menu svg {
+  stroke: #2a1010 !important;
+}
 [data-theme="ce_red"] .dropdown-menu .dropdown-item:hover {
   background: #fdf3f2 !important;
   color: #c0392b !important;
 }
-[data-theme="ce_red"] .dropdown-menu svg { stroke: #2a1010 !important; }
-[data-theme="ce_red"] .awesomplete ul,
-[data-theme="ce_red"] .awesomplete [role="listbox"] {
+[data-theme="ce_red"] .awesomplete ul {
   background: #ffffff !important;
   border: 1px solid #eeccc8 !important;
   border-radius: 10px !important;
 }
-[data-theme="ce_red"] .awesomplete li,
-[data-theme="ce_red"] .awesomplete [role="option"] { color: #2a1010 !important; }
+[data-theme="ce_red"] .awesomplete li {
+  color: #2a1010 !important;
+}
 [data-theme="ce_red"] .awesomplete li:hover,
 [data-theme="ce_red"] .awesomplete [aria-selected="true"] {
   background: #fdf3f2 !important;
   color: #c0392b !important;
 }
 
-/* Sidebar (light) */
+/* Sidebar */
 [data-theme="ce_red"] .layout-side-section,
 [data-theme="ce_red"] .desk-sidebar {
   background: #fdf8f7 !important;
   border-right: 1px solid #eeccc8 !important;
 }
-[data-theme="ce_red"] .desk-sidebar .sidebar-item-label { color: #7a3530 !important; }
+[data-theme="ce_red"] .desk-sidebar .sidebar-item-label {
+  color: #7a3530 !important;
+}
 [data-theme="ce_red"] .desk-sidebar .sidebar-item:hover {
   background: #fbe8e6 !important;
   border-radius: 8px;
@@ -587,14 +556,18 @@
 }
 [data-theme="ce_red"] .desk-sidebar .sidebar-item.selected .sidebar-item-label,
 [data-theme="ce_red"] .desk-sidebar .sidebar-item.active .sidebar-item-label {
-  color: #c0392b !important;
+  color: #922b21 !important;
   font-weight: 700 !important;
 }
-[data-theme="ce_red"] .desk-sidebar .sidebar-item.selected svg { stroke: #c0392b !important; }
+[data-theme="ce_red"] .desk-sidebar .sidebar-item.selected svg {
+  stroke: #c0392b !important;
+}
 
 /* Main background */
 [data-theme="ce_red"] .page-container,
-[data-theme="ce_red"] .layout-main-section-wrapper { background: #fdf3f2 !important; }
+[data-theme="ce_red"] .layout-main-section-wrapper {
+  background: #fdf3f2 !important;
+}
 
 /* Cards */
 [data-theme="ce_red"] .frappe-card,
@@ -605,14 +578,20 @@
   border-radius: 12px !important;
   border: 1px solid #f5d5d1 !important;
 }
-[data-theme="ce_red"] .number-card .number { color: #c0392b; font-weight: 800; }
+[data-theme="ce_red"] .number-card .number {
+  color: #c0392b !important;
+  font-weight: 800 !important;
+}
 
 /* Page head */
 [data-theme="ce_red"] .page-head {
   background: #ffffff !important;
   border-bottom: 1px solid #eeccc8 !important;
 }
-[data-theme="ce_red"] .title-text { color: #6e1409 !important; font-weight: 800 !important; }
+[data-theme="ce_red"] .title-text {
+  color: #6e1409 !important;
+  font-weight: 800 !important;
+}
 
 /* Buttons */
 [data-theme="ce_red"] .btn-primary {
@@ -625,6 +604,7 @@
 }
 [data-theme="ce_red"] .btn-primary:hover {
   background: #922b21 !important;
+  color: #ffffff !important;
   box-shadow: 0 4px 10px rgba(192,57,43,0.4) !important;
 }
 
@@ -634,7 +614,10 @@
   font-weight: 700 !important;
   border-bottom: 1px solid #eeccc8 !important;
 }
-[data-theme="ce_red"] .control-label { color: #7a3530 !important; font-weight: 600 !important; }
+[data-theme="ce_red"] .control-label {
+  color: #7a3530 !important;
+  font-weight: 600 !important;
+}
 [data-theme="ce_red"] .form-control:focus,
 [data-theme="ce_red"] input:focus,
 [data-theme="ce_red"] textarea:focus {
@@ -643,13 +626,18 @@
 }
 
 /* List */
-[data-theme="ce_red"] .list-row:hover { background: #fdf3f2 !important; }
+[data-theme="ce_red"] .list-row:hover {
+  background: #fdf3f2 !important;
+}
 [data-theme="ce_red"] .list-row-head {
   background: #fdf3f2 !important;
   color: #6e1409 !important;
   font-weight: 700 !important;
 }
-[data-theme="ce_red"] .list-subject a { color: #c0392b !important; font-weight: 600; }
+[data-theme="ce_red"] .list-subject a {
+  color: #c0392b !important;
+  font-weight: 600;
+}
 
 /* Tabs */
 [data-theme="ce_red"] .nav-tabs .nav-link.active,
@@ -659,27 +647,13 @@
   font-weight: 700 !important;
 }
 
-/* ── White text on ANY colored background ───────────────────── */
-[data-theme="ce_red"] .btn-primary,
-[data-theme="ce_red"] .badge-primary,
-[data-theme="ce_red"] .indicator-pill.red,
-[data-theme="ce_red"] .tag[style*="background"],
-[data-theme="ce_red"] .label-primary {
-  color: #ffffff !important;
-}
-[data-theme="ce_red"] .desk-sidebar .sidebar-item.selected .sidebar-item-label,
-[data-theme="ce_red"] .desk-sidebar .sidebar-item.active .sidebar-item-label {
-  color: #922b21 !important;
-  font-weight: 700 !important;
-}
-
-/* ── Text selection color ───────────────────────────────────── */
+/* Text selection */
 [data-theme="ce_red"] ::selection {
-  background: rgba(192, 57, 43, 0.18);
+  background: rgba(192,57,43,0.18);
   color: #6e1409;
 }
 
-/* ── Link color in content areas ────────────────────────────── */
+/* Links in content */
 [data-theme="ce_red"] .layout-main-section a:not(.btn):not(.nav-link) {
   color: #c0392b !important;
 }
